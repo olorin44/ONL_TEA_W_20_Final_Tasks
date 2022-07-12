@@ -32,30 +32,30 @@ public class ShopAddressSteps {
 
     @Then("I enter email {string} and password {string}")
     public void iLoginUsingEmailAndPasswd(String email, String passwd) {
-        SignInPage signInPage = new SignInPage(driver);
-        signInPage.logInData(email, passwd);
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.logInData(email, passwd);
     }
 
     @When("I go to my account page")
-    public void iGoToMyAccountPage() {
+    public void goToMyAccountPage() {
         AccountPage accountPage = new AccountPage(driver);
         accountPage.createAddress();
     }
 
     @And("I click on create new address")
     public void iGoToCreateNewAddress() {
-        AddressPage myAddressPage = new AddressPage(driver);
-        myAddressPage.setAddAddressBtn();
+        AddressPage addressPage = new AddressPage(driver);
+        addressPage.setAddAddressBtn();
     }
 
     @And("^I enter new address data alias (.+), address (.+), city (.+), postal_code (.+), country (.+), phone (.+)$")
-    public void iEnterNewAACPCP(String alias, String address, String city, String postal, String country, String phone) {
-        CreateAddress createAddress = new CreateAddress(driver);
-        createAddress.enterDataAddress(alias, address, city, postal, country, phone);
+    public void enterNewAddressData(String alias, String address, String city, String postal, String country, String phone) {
+        AddressAdd addressAdd = new AddressAdd(driver);
+        addressAdd.enterDataAddress(alias, address, city, postal, country, phone);
     }
 
     @Then("^I verify created address alias (.+), address (.+), city (.+), postal_code (.+), country (.+), phone (.+)$")
-    public void iVerifyCreatedAACPCP(String alias, String address, String city, String postal, String country, String phone) {
+    public void verifyNewAddressData(String alias, String address, String city, String postal, String country, String phone) {
 
         //wpisany adres
         String actualAddress = driver.findElement(By.cssSelector(".address-body")).getText();

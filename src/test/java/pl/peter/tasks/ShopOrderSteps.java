@@ -37,8 +37,8 @@ public class ShopOrderSteps {
 
     @Then("I enter email {string} and password {string}")
     public void iLoginUsingEmailAndPasswd(String email, String passwd) {
-        SignInPage signInPage = new SignInPage(driver);
-        signInPage.logInData(email, passwd);
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.logInData(email, passwd);
     }
 
     @When("I click on clothes category and on Hummingbird Printed Sweater")
@@ -46,24 +46,24 @@ public class ShopOrderSteps {
         MainPage mainPage = new MainPage(driver);
         mainPage.clothes();
 
-        FilterClothesPage filterClothesPage = new FilterClothesPage(driver);
-        filterClothesPage.chooseHPSweater();
+        ClothesSweaterPage clothesSweaterPage = new ClothesSweaterPage(driver);
+        clothesSweaterPage.chooseHPSweater();
     }
 
     @And("I choose size and quantity and I add product")
     public void iChooseSizeAndQuantityAndAddItemToCart() {
-        HPSweaterAttribute hpSweaterAttribute = new HPSweaterAttribute(driver);
-        hpSweaterAttribute.chooseSize();
-        hpSweaterAttribute.chooseQty();
-        hpSweaterAttribute.addCart();
-        hpSweaterAttribute.btnProceedToBasket();
+        SweaterDetails sweaterDetails = new SweaterDetails(driver);
+        sweaterDetails.chooseSize();
+        sweaterDetails.chooseQty();
+        sweaterDetails.addCart();
+        sweaterDetails.btnProceedToBasket();
     }
 
     @Then("I confirm order")
     public void iCheckoutAndConfirmBasket() {
 
-        BasketPage basketPage = new BasketPage(driver);
-        basketPage.btnProceedBasket();
+        OrderPage basketPage = new OrderPage(driver);
+        basketPage.btnCheckout();
     }
 
     @When("I confirm address")
@@ -75,19 +75,19 @@ public class ShopOrderSteps {
 
     @And("I choose PrestaShop and Pay by check")
     public void iChoosePrestaShopAndPayByCheck() {
-        ConfirmAdressShippingPaymentDataPage confirmAdressShippingPaymentDataPage = new ConfirmAdressShippingPaymentDataPage(driver);
+        ConfirmOrderDataPage confirmOrderDataPage = new ConfirmOrderDataPage(driver);
 
-        confirmAdressShippingPaymentDataPage.PrestaShop();
-        confirmAdressShippingPaymentDataPage.shippingContinueButton();
+        confirmOrderDataPage.PrestaShop();
+        confirmOrderDataPage.shippingContinueButton();
 
-        confirmAdressShippingPaymentDataPage.choosePaymentMethod();
-        confirmAdressShippingPaymentDataPage.agreedTermsAndServices();
-        confirmAdressShippingPaymentDataPage.orderObligationToPay();
+        confirmOrderDataPage.choosePaymentMethod();
+        confirmOrderDataPage.agreedTermsAndServices();
+        confirmOrderDataPage.orderObligationToPay();
     }
 
     @Then("I take screenshot")
     public void iTakeScreenshot() throws InterruptedException, AWTException, IOException {
-        Thread.sleep(1000);
+        Thread.sleep(500);
 
         Robot r = new Robot();
         String path = "D:\\uzytki\\programowanie\\testowanie\\CodersLab\\tester_automatyzujacy\\projects\\screen.jpg";
