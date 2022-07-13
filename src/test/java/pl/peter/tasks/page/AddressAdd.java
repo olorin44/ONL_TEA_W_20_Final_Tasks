@@ -13,10 +13,6 @@ public class AddressAdd {
         PageFactory.initElements(driver, this);
     }
 
-//        driver.findElement(By.xpath("//a[@data-link-action='add-address']")).click();
-
-
-
     @FindBy(xpath="//input[@name='alias']")
     private WebElement inputAlias;
     @FindBy(xpath="//input[@name='address1']")
@@ -27,6 +23,7 @@ public class AddressAdd {
     private WebElement inputCountry;
     @FindBy(xpath="//input[@name='postcode']")
     private WebElement inputPostal;
+
     @FindBy(xpath="//input[@name='phone']")
     private WebElement inputPhone;
 

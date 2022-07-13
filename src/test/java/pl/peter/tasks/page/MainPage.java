@@ -20,8 +20,8 @@ public class MainPage {
         btn.click();
     }
 
-    @FindBy (xpath = "//*[contains(text(),'Clothes')]")
-    private WebElement clothesfilter;
+    @FindBy (css = "#category-3>a")
+    private WebElement filterCloth;
 
-    public void  clothes() {clothesfilter.click();}
+    public void  clothes() {filterCloth.click();}
 }

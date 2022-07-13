@@ -1,13 +1,11 @@
 package pl.peter.tasks;
 
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import pl.peter.tasks.page.*;
 
 import javax.imageio.ImageIO;
@@ -15,31 +13,10 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.time.Duration;
 
 public class ShopOrderSteps {
     private WebDriver driver;
 
-    @Given("I go to shop main page")
-    public void iGoToMainPage() {
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
-        driver.get("https://mystore-testlab.coderslab.pl/index.php");
-    }
-
-    @When("I click to sign in")
-    public void iSignIn() {
-        MainPage mainPage = new MainPage(driver);
-        mainPage.signIn();
-    }
-
-
-    @Then("I enter email {string} and password {string}")
-    public void iLoginUsingEmailAndPasswd(String email, String passwd) {
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.logInData(email, passwd);
-    }
 
     @When("I click on clothes category and on Hummingbird Printed Sweater")
     public void iClickClothesAndIChooseHummingbirdPrintedSweater() {
