@@ -14,14 +14,10 @@ public class MainPage {
     }
 
     @FindBy(xpath = "//a[@title='Log in to your customer account']")
-    private WebElement btn;
+    private WebElement loginBtn;
 
     public void signIn(){
-        btn.click();
+        loginBtn.click();
     }
 
-    @FindBy (css = "#category-3>a")
-    private WebElement filterCloth;
-
-    public void  clothes() {filterCloth.click();}
 }

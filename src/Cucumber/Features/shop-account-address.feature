@@ -1,3 +1,4 @@
+@Address
 Feature: Shop add my account address
 
   Scenario Outline: User can add account address

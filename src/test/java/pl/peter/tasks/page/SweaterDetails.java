@@ -23,22 +23,26 @@ public class SweaterDetails {
     @FindBy(xpath = "//input[@name='qty']")
     private WebElement quantity;
 
+    @FindBy(xpath = "//*[contains(@class,'touchspin-up')]")
+    private WebElement upArrowBtn;
+
     public void chooseQty () {
-        quantity.clear();
-        quantity.sendKeys("2");
+        for (int i = 0; i <= 6; i++) {
+            upArrowBtn.click();
+        }
     }
 
-    @FindBy (css = "button[class='btn btn-primary add-to-cart']")
-    private WebElement addCartProduct;
+    @FindBy (xpath = "//*[contains(@data-button-action,'add-to-cart')]")
+    private WebElement addCartBtn;
 
     public void addCart () {
-        addCartProduct.click();
+        addCartBtn.click();
     }
 
     @FindBy (xpath = "//*[contains(text(),'Proceed to checkout')]")
-    private WebElement proceedToBasket;
+    private WebElement proceedToCheckout;
 
-    public void btnProceedToBasket (){
-        proceedToBasket.click();
+    public void btnProceedToCheckout (){
+        proceedToCheckout.click();
     }
 }

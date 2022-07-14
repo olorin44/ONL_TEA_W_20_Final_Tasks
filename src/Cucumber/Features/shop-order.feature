@@ -1,10 +1,11 @@
+@Order
 Feature: Shop place order
 
   Scenario: User can make shop order
 
-    Given I go to shop main page
-    When I click to sign in
-    And I enter email "fynlivdgdzchqhnjfv@bvhrs.com" and password "123AB!"
+    Given I go to shop page
+    When I click sign in
+    And I fill email "fynlivdgdzchqhnjfv@bvhrs.com" and password "123AB!"
 
     When I click on clothes category and on Hummingbird Printed Sweater
     And I choose size and quantity and I add product
